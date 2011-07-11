@@ -20,6 +20,22 @@
 
 # Script to generate all required files from fresh git checkout.
 
+##########################################################################
+#  
+#       Added By Hu Jiakuan
+#
+#########################################################################
+if [[ $1 == "uninstall" ]];then
+	if [[ -f `pwd`/Makefile ]];then
+		make distclean
+	fi
+	
+	rm -rf aclocal.m4 autom4te.cache config configure
+	
+	exit 0
+fi
+
+
 command -v libtool >/dev/null 2>&1
 if  [ $? -ne 0 ]; then
     echo "autogen.sh: error: could not find libtool.  libtool is required to run autogen.sh." 1>&2
